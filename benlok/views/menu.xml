@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <menuitem
+        id="benlok_menu_root"
+        name="BenLok"
+        sequence="10"/>
+
+    <menuitem 
+        id="benlok_person_menu_categ" 
+        name="Person" 
+        parent="benlok_menu_root"
+        sequence="30"/>
+</odoo>

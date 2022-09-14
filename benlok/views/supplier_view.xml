@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <!-- benlok.supplier tree view -->
+    <record id="benlok_supplier_view_tree" model="ir.ui.view">
+        <field name="name">Supplier</field>
+        <field name="model">benlok.supplier</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="alamat"/>
+                <field name="email"/>
+                <field name="tipe_supplier"/>
+                <field name="sukucadang_ids" widget="many2many_tags"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- benlok.supplier form view -->
+    <record id="benlok_supplier_view_form" model="ir.ui.view">
+        <field name="name">Form Supplier</field>
+        <field name="model">benlok.supplier</field>
+        <field name="arch" type="xml">
+            <form string="Form Supplier">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="alamat"/>
+                        <field name="email"/>
+                        <field name="tipe_supplier"/>
+                    </group>
+                    <group string="Suku Cadang">
+                        <field name="sukucadang_ids">
+                            <tree>
+                                <field name="name"/>
+                                <field name="deskripsi"/>
+                                <field name="harga"/>
+                                <field name="stok"/>
+                                <field name="kendaraan_ids"/>
+                            </tree>
+                        </field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- benlok.supplier action window -->
+    <record id="benlok_supplier_action" model="ir.actions.act_window">
+        <field name="name">Daftar Supplier</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">benlok.supplier</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+    <menuitem 
+        id="benlok_supplier_menu_categ" 
+        name="Supplier" 
+        parent="benlok_menu_root"
+        action="benlok_supplier_action" 
+        sequence="40"/>
+</odoo>

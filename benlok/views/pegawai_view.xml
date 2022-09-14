@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    
+    <!-- benlok.pegawai inherit tree view -->
+    <record id="benlok_pegawai_tree_inherit" model="ir.ui.view">
+        <field name="name">Daftar Pegawai</field>
+        <field name="model">benlok.pegawai</field>
+        <field name="mode">primary</field>
+        <field name="inherit_id" ref="benlok_person_view_tree"/>
+        <field name="arch" type="xml">
+            
+            <xpath expr="//field[@name='no_telp']" position="after">
+                <field name="tgl_masuk"/>
+                <field name="jabatan"/>
+                <field name="exp"/>
+                <field name="pendapatan"/>
+            </xpath>
+                        
+        </field>
+    </record>
+
+    <!-- benlok.pegawai inherit form view -->
+    <record id="benlok_pegawai_form_inherit" model="ir.ui.view">
+        <field name="name">Form Pegawai</field>
+        <field name="model">benlok.pegawai</field>
+        <field name="mode">primary</field>
+        <field name="inherit_id" ref="benlok_person_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='no_telp']" position="after">
+                <field name="tgl_masuk"/>
+                <field name="jabatan"/>
+                <field name="exp"/>
+                <field name="pendapatan"/>
+            </xpath>
+                       
+        </field>
+    </record>
+
+    <!-- benlok.pegawai action window -->
+    <record id="benlok_pegawai_action" model="ir.actions.act_window">
+        <field name="name">Pegawai</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">benlok.pegawai</field>
+        <field name="view_mode">tree,form,kanban</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem 
+        id="benlok_pegawai_menu_act" 
+        name="Pegawai" 
+        parent="benlok_person_menu_categ" 
+        action="benlok_pegawai_action" 
+        sequence="31"/>
+</odoo>

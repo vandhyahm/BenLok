@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    
+    <!-- benlok.konsumen inherit tree view -->
+    <record id="benlok_konsumen_tree_inherit" model="ir.ui.view">
+        <field name="name">Daftar Konsumen</field>
+        <field name="model">benlok.konsumen</field>
+        <field name="mode">primary</field>
+        <field name="inherit_id" ref="benlok_person_view_tree"/>
+        <field name="arch" type="xml">
+            
+            <xpath expr="//field[@name='no_telp']" position="after">
+                <field name="kendaraan_ids" widget="many2many_tags"/>
+            </xpath>
+                        
+        </field>
+    </record>
+
+    <!-- benlok.konsumen inherit form view -->
+    <record id="benlok_konsumen_form_inherit" model="ir.ui.view">
+        <field name="name">Form Konsumen</field>
+        <field name="model">benlok.konsumen</field>
+        <field name="mode">primary</field>
+        <field name="inherit_id" ref="benlok_person_view_form"/>
+        <field name="arch" type="xml">
+            
+            <xpath expr="//field[@name='no_telp']" position="after">
+                <field name="kendaraan_ids"/>
+            </xpath>
+                       
+        </field>
+    </record>
+
+    <!-- benlok.konsumen action window -->
+    <record id="benlok_konsumen_action" model="ir.actions.act_window">
+        <field name="name">Konsumen</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">benlok.konsumen</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem 
+        id="benlok_konsumen_menu_act" 
+        name="Konsumen" 
+        parent="benlok_person_menu_categ" 
+        action="benlok_konsumen_action" 
+        sequence="30"/>
+</odoo>

@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+
+    <!-- benlok.kendaraan tree view -->
+    <record id="benlok_kendaraan_view_tree" model="ir.ui.view">
+        <field name="name">Database Kendaraan</field>
+        <field name="model">benlok.kendaraan</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="jenis"/>
+                <field name="merk"/>
+                <field name="tipe"/>
+                <field name="tahun"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- benlok.kendaraan form view -->
+    <record id="benlok_kendaraan_view_form" model="ir.ui.view">
+        <field name="name">Form Kendaraan</field>
+        <field name="model">benlok.kendaraan</field>
+        <field name="arch" type="xml">
+            <form string="Tambah Kendaraan Baru ke Database">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="jenis"/>
+                        <field name="merk"/>
+                        <field name="tipe"/>
+                        <field name="tahun"/>
+                    </group>
+                    <group string="Suku Cadang">
+                        <field name="sukucadang_ids"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- benlok.kendaraan action window -->
+    <record id="benlok_kendaraan_action" model="ir.actions.act_window">
+        <field name="name">Kendaraan</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">benlok.kendaraan</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem 
+        id="benlok_kendaraan_menu_categ" 
+        name="Kendaraan" 
+        parent="benlok_menu_root"
+        action="benlok_kendaraan_action"  
+        sequence="11"/>
+
+</odoo>

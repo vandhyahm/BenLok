@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <!-- benlok.person tree view -->
+    <record id="benlok_person_view_tree" model="ir.ui.view">
+        <field name="name">benlok_person_view_tree</field>
+        <field name="model">benlok.person</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="alamat"/>
+                <field name="no_telp"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- benlok.person form view -->
+    <record id="benlok_person_view_form" model="ir.ui.view">
+        <field name="name">benlok.person.view.form</field>
+        <field name="model">benlok.person</field>
+        <field name="arch" type="xml">
+            <form string="Form">
+                <sheet>
+                    <group>
+                        <field name="foto" widget="image" class="oe_avatar"/>
+                        <field name="name"/>
+                        <field name="alamat"/>
+                        <field name="no_telp"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+</odoo>

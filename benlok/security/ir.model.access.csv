@@ -1,0 +1,10 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_benlok_kendaraan,access.benlok.kendaraan,model_benlok_kendaraan,,1,1,1,1
+access_benlok_sukucadang,access.benlok.sukucadang,model_benlok_sukucadang,,1,1,1,1
+access_benlok_person,access.benlok.person,model_benlok_person,,1,1,1,1
+access_benlok_konsumen,access.benlok.konsumen,model_benlok_konsumen,,1,1,1,1
+access_benlok_pegawai,access.benlok.pegawai,model_benlok_pegawai,,1,1,1,1
+access_benlok_supplier,access.benlok.supplier,model_benlok_supplier,,1,1,1,1
+access_benlok_transaksi,access.benlok.transaksi,model_benlok_transaksi,,1,1,1,1
+access_benlok_detailtransaksi,access.benlok.detailtransaksi,model_benlok_detailtransaksi,,1,1,1,1
+access_benlok_tambahsukucadang,access.benlok.tambahsukucadang,model_benlok_tambahsukucadang,,1,1,1,1

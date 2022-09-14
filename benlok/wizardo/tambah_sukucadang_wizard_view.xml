@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <!-- tambah_stok_sukucadang form view -->
+    <record id="tambah_stok_sukucadang_view_form_wizard" model="ir.ui.view">
+        <field name="name">Tambah Stok</field>
+        <field name="model">benlok.tambahsukucadang</field>
+        <field name="arch" type="xml">
+            <form string="Form Tambah Stok">
+                <group>
+                    <field name="sukucadang_id"/>
+                    <field name="jumlah"/>
+                </group>
+                <footer>
+                    <button name="button_tambah_stok" type="object" string="Tambah" class="btn btn-success"/>
+                    <button string="Cancel" special="cancel" class="oe_link"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- tambah_stok_sukucadang_action_wizard action window -->
+    <record id="tambah_stok_sukucadang_action_wizard" model="ir.actions.act_window">
+        <field name="name">Tambah Stok</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">benlok.tambahsukucadang</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="tambah_stok_sukucadang_view_form_wizard"/>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem
+        id="tambah_stok_sukucadang_menu_act_wizard"
+        name="Tambah Stok"
+        parent="benlok_sukucadang_menu_categ"
+        action="tambah_stok_sukucadang_action_wizard"
+        sequence="48"/>
+</odoo>

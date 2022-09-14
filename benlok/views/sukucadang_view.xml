@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+
+    <!-- benlok.sukucadang tree view -->
+    <record id="benlok_sukucadang_view_tree" model="ir.ui.view">
+        <field name="name">Database Suku Cadang</field>
+        <field name="model">benlok.sukucadang</field>
+        <field name="arch" type="xml">
+            <tree>
+                <header>
+                    <button name="%(tambah_stok_sukucadang_action_wizard)d" string="Tambah Stok" type="action" class="oe_highlight"/>
+                </header>
+                <field name="name"/>
+                <field name="deskripsi"/>
+                <field name="harga"/>
+                <field name="stok"/>
+                <field name="supplier_id"/>
+                <field name="kendaraan_ids" widget="many2many_tags"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- benlok.sukucadang form view -->
+    <record id="benlok_sukucadang_view_form" model="ir.ui.view">
+        <field name="name">Form Suku Cadang</field>
+        <field name="model">benlok.sukucadang</field>
+        <field name="arch" type="xml">
+            <form string="Tambah Suku Cadang Baru ke Database">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="deskripsi"/>
+                        <field name="harga"/>
+                        <field name="stok"/>
+                        <field name="supplier_id"/>
+                    </group>
+                    <group string="Kendaraan">
+                        <field name="kendaraan_ids"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- benlok.sukucadang action window -->
+    <record id="benlok_sukucadang_action" model="ir.actions.act_window">
+        <field name="name">Suku Cadang</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">benlok.sukucadang</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem 
+        id="benlok_sukucadang_menu_categ" 
+        name="Suku Cadang" 
+        parent="benlok_menu_root"
+        action="benlok_sukucadang_action"
+        sequence="20"/>
+    
+    <menuitem 
+        id="benlok_sukucadang_menu_dropdown_categ" 
+        name="Suku Cadang" 
+        parent="benlok_sukucadang_menu_categ"
+        action="benlok_sukucadang_action"
+        sequence="21"/>
+</odoo>

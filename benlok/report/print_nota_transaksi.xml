@@ -1,0 +1,143 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <template id="report_transaksi_pdf">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <t t-foreach="docs" t-as="d">
+                        <h2>NOTA TRANSAKSI</h2>
+                        <div class="row">
+                            <div class="col-4">
+                                <p>No. Transaksi: </p>
+                            </div>
+                            <div class="col-8">
+                                <span t-field="d.name"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4">
+                                <p>Tanggal Transaksi: </p>
+                            </div>
+                            <div class="col-8">
+                                <span t-field="d.tanggal" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4">
+                                <p>Nama Konsumen: </p>
+                            </div>
+                            <div class="col-8">
+                                <span t-field="d.konsumen_id.name" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4">
+                                <p>Nama Kendaraan: </p>
+                            </div>
+                            <div class="col-8">
+                                <span t-field="d.nama_kendaraan" />
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="row">
+                            <h3>Detail Transaksi</h3>
+                        </div>
+                        <!-- <table>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Deskripsi</th>
+                                        <th scope="col">Harga Satuan</th>
+                                        <th scope="col">Harga Satuan</th>
+                                        <th scope="col">Kuantitas</th>
+                                        <th scope="col">Subtotal</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">Suku Cadang</th>
+                                        <td>Deskripsi</td>
+                                        <td>Harga Satuan</td>
+                                        <td>Kuantitas</td>
+                                        <td>Subtotal</td>
+                                    </tr>
+                                    <tr>
+                                        <t t-foreach="d.detail_transaksi_ids" t-as="ds">
+                                            <th scope="row"><span class="col" t-field="ds.id_sukucadang.name"/></th>
+                                            <td><span class="col" t-field="ds.id_sukucadang.deskripsi"/></td>
+                                            <td><span class="col" t-field="ds.harga_satuan"/></td>
+                                            <td><span class="col" t-field="ds.qty"/></td>
+                                            <td><span class="col" t-field="ds.subtotal"/></td>
+                                        </t>
+                                    </tr>
+                                </tbody>
+                            </table> -->
+                        <div class="row">
+                            <div class="col-4">
+                                <b>Suku Cadang</b>
+                            </div>
+                            <div class="col-2">
+                                <b>Deskripsi</b>
+                            </div>
+                            <div class="col-2">
+                                <b>Harga Satuan</b>
+                            </div>
+                            <div class="col-2">
+                                <b>Kuantitas</b>
+                            </div>
+                            <div class="col-2">
+                                <b>Subtotal</b>
+                            </div>
+                        </div>
+                        <t t-foreach="d.detail_transaksi_ids" t-as="ds">
+                            <div class="row">
+                                <div class="col-4">
+                                    <span t-field="ds.id_sukucadang.name"/>
+                                </div>
+                                <div class="col-2">
+                                    <span t-field="ds.id_sukucadang.deskripsi"/>
+                                </div>
+                                <div class="col-2">
+                                    <span t-field="ds.harga_satuan"/>
+                                </div>
+                                <div class="col-2">
+                                    <span t-field="ds.qty"/>
+                                </div>
+                                <div class="col-2">
+                                    <span t-field="ds.subtotal"/>
+                                </div>
+                            </div>
+                        </t>
+                        <br/>
+                        <div class="row">
+                            <div class="col-4">
+                                <p>Biaya Jasa: </p>
+                            </div>
+                            <div class="col-8">
+                                <span t-field="d.biaya_jasa" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4">
+                                <p><b>Total Pembayaran: </b></p>
+                            </div>
+                            <div class="col-8">
+                                <span t-field="d.total_bayar" />
+                            </div>
+                        </div>
+                        <br/><br/>
+                        <div class="row">
+                            <div class="col-6">
+                                <p>Mekanik:</p>
+                                <span t-field="d.mekanik_id.name" />
+                            </div>
+                            <div class="col-6">
+                                <p>Kasir:</p>
+                                <span t-field="d.kasir_id.name" />
+                            </div>
+                        </div>
+                    </t>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

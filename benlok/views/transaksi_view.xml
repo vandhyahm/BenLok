@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <!-- benlok.transaksi form view -->
+    <record id="benlok_transaksi_view_form" model="ir.ui.view">
+        <field name="name">Transaksi</field>
+        <field name="model">benlok.transaksi</field>
+        <field name="arch" type="xml">
+            <form string="Nota Transaksi">
+            <header>
+                <button name="action_confirm" string="Confirm" type="object" class="oe_highlight" states="draft" confirm="Are you sure you want to continue?"/>
+                <button name="action_repair" string="Repair" type="object" class="oe_highlight" states="confirmed" confirm="Are you sure you want to continue?"/>
+                <button name="action_done" string="Done" type="object" class="btn btn-success" states="repair" confirm="Are you sure you want to continue?"/>
+                <button name="action_cancel" string="Cancel" type="object" class="btn btn-danger" states="draft" confirm="Are you sure you want to cancel?"/>
+                <field name="state" widget="statusbar" statusbar_visible="draft,confirmed,repair,done"/>
+            </header>
+                <sheet>
+                    <widget name="web_ribbon" text="Paid" states="done"/>
+                    <group>
+                        <field name="name" attrs="{'readonly' : [('state', '!=', 'draft'),('state', '!=', 'create')]}"/>
+                        <field name="tanggal" attrs="{'readonly' : [('state', '!=', 'draft'),('state', '!=', 'create')]}"/>
+                        <field name="konsumen_id" attrs="{'readonly' : [('state', '!=', 'draft'),('state', '!=', 'create')]}"/>
+                        <field name="kendaraan_id" attrs="{'readonly' : [('state', '!=', 'draft'),('state', '!=', 'create')]}"/>
+                        <field name="nama_kendaraan"/>
+                        <field name="mekanik_id" attrs="{'readonly' : [('state', '!=', 'draft'),('state', '!=', 'create')]}"/>
+                    </group>
+                    <group>
+                        <field name="detail_transaksi_ids" attrs="{'readonly' : [('state', '!=', 'draft'),('state', '!=', 'create')]}">
+                            <tree editable="bottom">
+                                <field name="id_sukucadang"/>
+                                <field name="deskripsi"/>
+                                <field name="harga_satuan"/>
+                                <field name="qty"/>
+                                <field name="subtotal" sum="Total"/>
+                            </tree>
+                        </field>
+                    </group>
+                    <group>
+                        <field name="biaya_jasa" attrs="{'readonly' : [('state', '!=', 'draft'),('state', '!=', 'create')]}"/>
+                        <field name="total_bayar"/>
+                        <field name="kasir_id" attrs="{'readonly' : [('state', '!=', 'draft'),('state', '!=', 'create')]}"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- benlok.transaksi tree view -->
+    <record id="benlok_transaksi_view_tree" model="ir.ui.view">
+        <field name="name">List Transaksi</field>
+        <field name="model">benlok.transaksi</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="nama_kendaraan"/>
+                <field name="tanggal"/>
+                <field name="konsumen_id"/>
+                <field name="mekanik_id"/>
+                <field name="kasir_id"/>
+                <field name="total_bayar"/>
+                <field name="state" 
+                decoration-muted="state == 'draft'"
+                decoration-info="state == 'confirmed' or state =='repair'" 
+                decoration-success="state == 'done'"
+                decoration-danger="state == 'cancel'"
+                widget="badge"
+                />
+            </tree>
+        </field>
+    </record>
+
+    <!-- benlok.transaksi action window -->
+    <record id="benlok_transaksi_action" model="ir.actions.act_window">
+        <field name="name">Transaksi</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">benlok.transaksi</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">
+        {
+            'search_default_state': 'done',
+            'default_is_state':'done' 
+        }
+    </field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem 
+        id="benlok_transaksi_menu_act" 
+        name="Transaksi" 
+        parent="benlok_menu_root" 
+        action="benlok_transaksi_action" 
+        sequence="50"/>
+</odoo>
