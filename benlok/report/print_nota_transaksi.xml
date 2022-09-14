@@ -42,35 +42,6 @@
                         <div class="row">
                             <h3>Detail Transaksi</h3>
                         </div>
-                        <!-- <table>
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Deskripsi</th>
-                                        <th scope="col">Harga Satuan</th>
-                                        <th scope="col">Harga Satuan</th>
-                                        <th scope="col">Kuantitas</th>
-                                        <th scope="col">Subtotal</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">Suku Cadang</th>
-                                        <td>Deskripsi</td>
-                                        <td>Harga Satuan</td>
-                                        <td>Kuantitas</td>
-                                        <td>Subtotal</td>
-                                    </tr>
-                                    <tr>
-                                        <t t-foreach="d.detail_transaksi_ids" t-as="ds">
-                                            <th scope="row"><span class="col" t-field="ds.id_sukucadang.name"/></th>
-                                            <td><span class="col" t-field="ds.id_sukucadang.deskripsi"/></td>
-                                            <td><span class="col" t-field="ds.harga_satuan"/></td>
-                                            <td><span class="col" t-field="ds.qty"/></td>
-                                            <td><span class="col" t-field="ds.subtotal"/></td>
-                                        </t>
-                                    </tr>
-                                </tbody>
-                            </table> -->
                         <div class="row">
                             <div class="col-4">
                                 <b>Suku Cadang</b>

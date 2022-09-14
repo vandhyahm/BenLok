@@ -8,7 +8,11 @@ class Transaksi(models.Model):
     _name = 'benlok.transaksi'
     _description = 'Transaksi dalam bengkel'
 
-    name = fields.Char(string='Nomor Transaksi')
+    def _default_nota_transaksi(self):
+        count = len(self.env['benlok.transaksi'].search([]))
+        return f'INV{count:05d}'
+    
+    name = fields.Char(string='Nomor Transaksi', default=_default_nota_transaksi)
     tanggal = fields.Date('Tanggal Transaksi', default=date.today(), required=True)
     konsumen_id = fields.Many2one(comodel_name='benlok.konsumen', string='Konsumen')
     kendaraan_id = fields.Many2one(
