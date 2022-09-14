@@ -10,7 +10,7 @@
         <field name="binding_type">report</field>
     </record>
 
-    <record id="report_transaksi_pdf" model="ir.actions.report">
+    <record id="report_transaksi" model="ir.actions.report">
         <field name="name">Nota Transaksi</field>
         <field name="model">benlok.transaksi</field>
         <field name="report_type">qweb-pdf</field>

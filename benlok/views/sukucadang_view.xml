@@ -49,13 +49,6 @@
         <field name="res_model">benlok.sukucadang</field>
         <field name="view_mode">tree,form</field>
     </record>
-
-    <menuitem 
-        id="benlok_sukucadang_menu_categ" 
-        name="Suku Cadang" 
-        parent="benlok_menu_root"
-        action="benlok_sukucadang_action"
-        sequence="20"/>
     
     <menuitem 
         id="benlok_sukucadang_menu_dropdown_categ" 

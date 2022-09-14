@@ -10,4 +10,10 @@
         name="Person" 
         parent="benlok_menu_root"
         sequence="30"/>
+
+    <menuitem 
+        id="benlok_sukucadang_menu_categ" 
+        name="Suku Cadang" 
+        parent="benlok_menu_root"
+        sequence="20"/>
 </odoo>
